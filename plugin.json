@@ -1,0 +1,16 @@
+{
+  "name": "mobiik-agent-skills",
+  "description": "Curated collection of agent skills by Mobiik for AI-assisted development workflows.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Mobiik",
+    "url": "https://mobiik.com"
+  },
+  "homepage": "https://github.com/mobiik/docs-aidd-agent-skills",
+  "repository": "https://github.com/mobiik/docs-aidd-agent-skills",
+  "license": "MIT",
+  "keywords": ["ai", "skills", "copilot", "aidd", "mobiik", "framework", "bootstrap"],
+  "category": "AI Development",
+  "tags": ["agent-framework", "code-generation", "developer-tools"],
+  "skills": "skills/"
+}

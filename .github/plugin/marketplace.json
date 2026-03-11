@@ -1,0 +1,23 @@
+{
+  "name": "mobiik-copilot-marketplace",
+  "owner": {
+    "name": "Mobiik",
+    "email": "dev@mobiik.com"
+  },
+  "metadata": {
+    "description": "Mobiik AI development plugins for GitHub Copilot",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "mobiik-agent-skills",
+      "description": "Curated collection of agent skills by Mobiik for AI-assisted development workflows.",
+      "version": "0.1.0",
+      "source": ".",
+      "repository": "https://github.com/mobiik/docs-aidd-agent-skills",
+      "license": "MIT",
+      "keywords": ["ai", "agents", "copilot", "skills", "aidd", "framework"],
+      "category": "AI Development"
+    }
+  ]
+}
