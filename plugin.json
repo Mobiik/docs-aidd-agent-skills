@@ -1,6 +1,6 @@
 {
   "name": "mobiik-agent-skills",
-  "description": "Curated collection of agent skills by Mobiik for AI-assisted development workflows.",
+  "description": "Skills compartidos para asistentes de IA, que encapsulan los flujos de trabajo, estándares y buenas prácticas de Mobiik.",
   "version": "0.1.0",
   "author": {
     "name": "Mobiik",

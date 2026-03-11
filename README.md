@@ -1,87 +1,88 @@
 # Mobiik Agent Skills
 
-Agent Plugin for VS Code and GitHub Copilot CLI that provides a curated
-collection of agent skills for AI-assisted development workflows.
+Skills compartidos para asistentes de IA, que encapsulan los flujos de trabajo,
+estándares y buenas prácticas de Mobiik.
 
-## Available skills
+## Skills disponibles
 
-| Skill | Description |
+| Skill | Descripción |
 |---|---|
-| **agent-blueprints** | Reference specification with templates for the 5-agent + 12-skill + 3-rule framework |
+| **agent-blueprints** | Especificación de referencia con plantillas para el framework de 5 agentes + 12 skills + 3 reglas |
 
-## Installation
+## Instalación
 
-### Option 1: VS Code marketplace (recommended for teams)
+### Opción 1: Marketplace en VS Code (recomendado para equipos)
 
-Add the marketplace source to your VS Code `settings.json`:
+Agrega la fuente del marketplace en tu `settings.json` de VS Code:
 
 ```json
 {
   "chat.plugins.enabled": true,
-  "chat.plugins.marketplaces": ["mobiik/docs-aidd-agent-skills"]
+  "chat.plugins.marketplaces": ["git@github.com:Mobiik/docs-aidd-agent-skills.git"]
 }
 ```
 
-Then open the Extensions view (`Ctrl+Shift+X`), search for `@agentPlugins`, and
-install **mobiik-agent-skills**.
+Luego abre la vista de Extensiones (`Ctrl+Shift+X`), busca `@agentPlugins` e
+instala **mobiik-agent-skills**.
 
-### Option 2: GitHub Copilot CLI
+### Opción 2: GitHub Copilot CLI
 
 ```bash
-copilot plugin marketplace add mobiik/docs-aidd-agent-skills
+copilot plugin marketplace add git@github.com:Mobiik/docs-aidd-agent-skills.git
 copilot plugin install mobiik-agent-skills@mobiik-copilot-marketplace
 ```
 
-Or install directly from the repository:
+O instala directamente desde el repositorio:
 
 ```bash
-copilot plugin install mobiik/docs-aidd-agent-skills
+copilot plugin install git@github.com:Mobiik/docs-aidd-agent-skills.git
 ```
 
-### Option 3: Local path
+### Opción 3: Ruta local
 
-Clone the repo and register the plugin locally:
+Clona el repo y registra el plugin localmente:
 
 ```json
 {
   "chat.plugins.paths": {
-    "/path/to/docs-aidd-agent-skills": true
+    "/ruta/a/docs-aidd-agent-skills": true
   }
 }
 ```
 
-## Usage
+## Uso
 
-Skills load automatically based on context. Each skill activates when the agent
-detects relevant keywords or tasks described in the skill's trigger conditions.
+Los skills se cargan automáticamente según el contexto. Cada skill se activa
+cuando el agente detecta palabras clave o tareas descritas en sus condiciones
+de activación.
 
-## Plugin structure
+## Estructura del plugin
 
 ```
 docs-aidd-agent-skills/
-├── plugin.json                        # Plugin manifest
+├── plugin.json                        # Manifiesto del plugin
 ├── .github/
 │   └── plugin/
-│       └── marketplace.json           # Marketplace definition
+│       └── marketplace.json           # Definición del marketplace
 ├── skills/
 │   └── agent-blueprints/
-│       ├── SKILL.md                   # Skill: framework specification
+│       ├── SKILL.md                   # Skill: especificación del framework
 │       └── references/
-│           └── stacks.md              # Stack-specific adaptations
+│           └── stacks.md              # Adaptaciones por stack tecnológico
 ├── CHANGELOG.md
 └── LICENSE
 ```
 
-## Compatibility
+## Compatibilidad
 
-| Platform | Support |
+| Plataforma | Soporte |
 |---|---|
-| VS Code + GitHub Copilot (v1.110+) | Native via Agent Plugin system |
+| VS Code + GitHub Copilot (v1.110+) | Nativo vía sistema de Agent Plugins |
 | GitHub Copilot CLI | `copilot plugin install` |
-| Cursor | Reads `.claude/` output at project level |
-| Claude Code | Native `.claude/` format |
-| Codex, Amp, OpenCode | `.claude/` compatible |
+| Cursor | Lee la salida `.claude/` a nivel de proyecto |
+| Claude Code | Formato `.claude/` nativo |
+| Codex, Amp, OpenCode | Compatible con `.claude/` |
 
-## License
+## Licencia
 
 [MIT](LICENSE)
