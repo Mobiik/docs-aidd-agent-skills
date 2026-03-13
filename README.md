@@ -8,6 +8,7 @@ estándares y buenas prácticas de Mobiik.
 | Skill | Descripción |
 |---|---|
 | **agent-blueprints** | Especificación de referencia con plantillas para el framework de 5 agentes + 12 skills + 3 reglas |
+| **mobiik-github-rules** | Reglas de GitHub a nivel organización: branch protection, conventional commits, validación de email y prevención de secretos |
 
 ## Instalación
 
@@ -18,7 +19,7 @@ Agrega la fuente del marketplace en tu `settings.json` de VS Code:
 ```json
 {
   "chat.plugins.enabled": true,
-  "chat.plugins.marketplaces": ["git@github.com:Mobiik/docs-aidd-agent-skills.git"]
+  "chat.plugins.marketplaces": ["https://github.com/Mobiik/docs-aidd-agent-skills.git"]
 }
 ```
 
@@ -28,14 +29,14 @@ instala **mobiik-agent-skills**.
 ### Opción 2: GitHub Copilot CLI
 
 ```bash
-copilot plugin marketplace add git@github.com:Mobiik/docs-aidd-agent-skills.git
+copilot plugin marketplace add https://github.com/Mobiik/docs-aidd-agent-skills.git
 copilot plugin install mobiik-agent-skills@mobiik-copilot-marketplace
 ```
 
 O instala directamente desde el repositorio:
 
 ```bash
-copilot plugin install git@github.com:Mobiik/docs-aidd-agent-skills.git
+copilot plugin install https://github.com/Mobiik/docs-aidd-agent-skills.git
 ```
 
 ### Opción 3: Ruta local
@@ -65,10 +66,16 @@ docs-aidd-agent-skills/
 │   └── plugin/
 │       └── marketplace.json           # Definición del marketplace
 ├── skills/
-│   └── agent-blueprints/
-│       ├── SKILL.md                   # Skill: especificación del framework
+│   ├── agent-blueprints/
+│   │   ├── SKILL.md                   # Skill: especificación del framework
+│   │   └── references/
+│   │       └── stacks.md              # Adaptaciones por stack tecnológico
+│   └── mobiik-github-rules/
+│       ├── SKILL.md                   # Skill: reglas de GitHub organizacionales
 │       └── references/
-│           └── stacks.md              # Adaptaciones por stack tecnológico
+│           ├── git-hooks.md           # Hooks: commit-msg, pre-commit, pre-push
+│           ├── github-actions.md      # Workflow CI para validación en PRs
+│           └── gitignore-template.md  # Template .gitignore con patrones de secretos
 ├── CHANGELOG.md
 └── LICENSE
 ```
