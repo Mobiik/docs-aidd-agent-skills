@@ -66,7 +66,7 @@ Desktop.ini
 .idea/
 
 # VSCode / Cursor
-.vscode/
+.vscode/*
 !.vscode/settings.json
 !.vscode/extensions.json
 

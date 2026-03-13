@@ -62,7 +62,7 @@ jobs:
           ERRORS=""
           PASS=true
 
-          COMMITS=$(git log --format="%H %ae" origin/${{ github.base_ref }}..HEAD)
+          COMMITS=$(git log --no-merges --format="%H %ae" origin/${{ github.base_ref }}..HEAD)
 
           while IFS= read -r line; do
             [ -z "$line" ] && continue
@@ -226,31 +226,34 @@ jobs:
               body += `:tada: **Todas las validaciones pasaron correctamente.**\n`;
             }
 
-            // Find existing comment to update
-            const { data: comments } = await github.rest.issues.listComments({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: context.issue.number,
-            });
-
-            const botComment = comments.find(c =>
-              c.user.type === 'Bot' && c.body.includes('Validación de Reglas Mobiik')
-            );
-
-            if (botComment) {
-              await github.rest.issues.updateComment({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                comment_id: botComment.id,
-                body,
-              });
-            } else {
-              await github.rest.issues.createComment({
+            try {
+              const { data: comments } = await github.rest.issues.listComments({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 issue_number: context.issue.number,
-                body,
               });
+
+              const botComment = comments.find(c =>
+                c.user.type === 'Bot' && c.body.includes('Validación de Reglas Mobiik')
+              );
+
+              if (botComment) {
+                await github.rest.issues.updateComment({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  comment_id: botComment.id,
+                  body,
+                });
+              } else {
+                await github.rest.issues.createComment({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: context.issue.number,
+                  body,
+                });
+              }
+            } catch (e) {
+              core.warning('No se pudo publicar el comentario en el PR: ' + e.message);
             }
 
       - name: Fallar si hay errores
