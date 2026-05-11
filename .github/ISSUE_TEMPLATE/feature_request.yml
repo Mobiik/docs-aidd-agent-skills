@@ -1,0 +1,89 @@
+name: 💡 Feature Request
+description: Proponer una nueva feature o mejora
+title: "feat: <descripción corta de la feature>"
+labels: ["enhancement", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ¡Gracias por proponer una mejora! Para que podamos evaluarla con criterio, describe el problema antes que la solución.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problema o necesidad
+      description: ¿Qué problema resuelve esta feature? ¿Para quién?
+      placeholder: Como <rol>, necesito <capacidad>, porque <motivo>.
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Propuesta de solución
+      description: Describe la solución que te gustaría ver. ¿Cómo se vería?
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternativas consideradas
+      description: ¿Qué otras opciones evaluaste? ¿Por qué prefieres esta?
+    validations:
+      required: false
+
+  - type: dropdown
+    id: impact
+    attributes:
+      label: Impacto esperado
+      description: ¿A quién afecta?
+      options:
+        - 🔥 Crítico (bloqueante para usuarios / negocio)
+        - 🚀 Alto (mejora significativa para muchos)
+        - 📈 Medio (mejora útil para algunos)
+        - ✨ Bajo (nice-to-have, edge case)
+    validations:
+      required: true
+
+  - type: dropdown
+    id: scope
+    attributes:
+      label: Scope
+      description: ¿Qué tan grande es el cambio?
+      options:
+        - Pequeño (< 1 día de trabajo)
+        - Mediano (1-5 días)
+        - Grande (> 1 semana)
+        - No estoy seguro
+    validations:
+      required: true
+
+  - type: textarea
+    id: examples
+    attributes:
+      label: Ejemplos de uso
+      description: Casos concretos de cómo se usaría esta feature.
+      placeholder: |
+        Ejemplo 1: ...
+        Ejemplo 2: ...
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Contexto adicional
+      description: Mockups, links a discusiones previas, dependencias técnicas.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: confirmation
+    attributes:
+      label: Verificación previa
+      options:
+        - label: Busqué issues existentes y esta feature no está duplicada.
+          required: true
+        - label: Esta es una propuesta para un repo de la org Mobiik (no para herramientas de terceros).
+          required: true
