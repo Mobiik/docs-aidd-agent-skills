@@ -1,0 +1,104 @@
+name: 🐛 Bug Report
+description: Reportar un bug en este repositorio
+title: "fix: <descripción corta del bug>"
+labels: ["bug", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ¡Gracias por reportar este bug! Por favor llena las secciones a continuación.
+
+        > ⚠️ **Si es una vulnerabilidad de seguridad**, NO la reportes aquí. Sigue [SECURITY.md](https://github.com/Mobiik/.github/blob/main/SECURITY.md) o reporta privadamente vía `security@mobiik.com`.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Descripción del bug
+      description: Una descripción clara y concisa del problema.
+      placeholder: Cuando hago X, espero Y, pero ocurre Z.
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Pasos para reproducir
+      description: Lista numerada de pasos para reproducir el bug.
+      placeholder: |
+        1. Ir a '...'
+        2. Hacer click en '...'
+        3. Ejecutar '...'
+        4. Ver error
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Comportamiento esperado
+      description: ¿Qué esperabas que pasara?
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Comportamiento actual
+      description: ¿Qué pasa en lugar de lo esperado? Incluye stack traces, mensajes de error o screenshots.
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Versión
+      description: Versión / branch / commit SHA donde ocurre el bug.
+      placeholder: "v1.2.3 o main@abc1234"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severidad
+      description: ¿Qué tan grave es el impacto?
+      options:
+        - 🔴 Crítica (producción afectada / data loss / security)
+        - 🟠 Alta (feature principal rota)
+        - 🟡 Media (workaround disponible)
+        - 🟢 Baja (cosmético / edge case)
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: OS, navegador, runtime, versiones relevantes.
+      placeholder: |
+        - OS: Ubuntu 22.04 / macOS 14 / Windows 11
+        - Node: v20.10.0
+        - Browser: Chrome 120 (si aplica)
+    validations:
+      required: false
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs / contexto adicional
+      description: Logs relevantes (sin secretos), screenshots, links a runs de CI.
+      render: shell
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: confirmation
+    attributes:
+      label: Verificación previa
+      options:
+        - label: Busqué issues existentes y este bug no está duplicado.
+          required: true
+        - label: NO incluí información sensible (tokens, passwords, datos de cliente).
+          required: true
+        - label: Si es seguridad, lo estoy reportando aquí porque es de bajo impacto y público; reportes confidenciales van a `security@mobiik.com`.
+          required: true
