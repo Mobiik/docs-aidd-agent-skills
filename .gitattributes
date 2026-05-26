@@ -1,0 +1,182 @@
+# =============================================================================
+# .gitattributes — Mobiik canonical (drift-managed por reconcile.sh)
+# =============================================================================
+# Normaliza line endings, define binarios y controla diffs.
+# Crucial para equipos mixtos Windows/macOS/Linux: sin esto, los diffs
+# se llenan de cambios CRLF↔LF que ocultan los cambios reales.
+#
+# Owners: NO modificar — drift-managed. Para cambios, abrir PR a
+# Mobiik/.github/configs/gitattributes.template y el self-heal del lunes
+# lo propagara a todos los repos.
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# Auto-deteccion: Git decide texto vs binario
+# -----------------------------------------------------------------------------
+* text=auto eol=lf
+
+# -----------------------------------------------------------------------------
+# Texto explicito — LF en repo, segun OS en checkout
+# -----------------------------------------------------------------------------
+*.md            text
+*.txt           text
+*.csv           text
+*.tsv           text
+*.json          text
+*.jsonc         text
+*.yaml          text
+*.yml           text
+*.toml          text
+*.ini           text
+*.cfg           text
+*.conf          text
+*.xml           text
+*.svg           text
+
+# Scripts
+*.sh            text eol=lf
+*.bash          text eol=lf
+*.zsh           text eol=lf
+*.fish          text eol=lf
+
+# Codigo fuente — LF siempre
+*.js            text eol=lf
+*.mjs           text eol=lf
+*.cjs           text eol=lf
+*.ts            text eol=lf
+*.tsx           text eol=lf
+*.jsx           text eol=lf
+*.vue           text eol=lf
+*.svelte        text eol=lf
+*.py            text eol=lf
+*.rb            text eol=lf
+*.go            text eol=lf
+*.rs            text eol=lf
+*.java          text eol=lf
+*.kt            text eol=lf
+*.kts           text eol=lf
+*.scala         text eol=lf
+*.cs            text eol=lf
+*.fs            text eol=lf
+*.vb            text eol=lf
+*.php           text eol=lf
+*.swift         text eol=lf
+*.dart          text eol=lf
+*.ex            text eol=lf
+*.exs           text eol=lf
+*.c             text eol=lf
+*.h             text eol=lf
+*.cpp           text eol=lf
+*.hpp           text eol=lf
+
+# HTML / CSS
+*.html          text eol=lf
+*.htm           text eol=lf
+*.css           text eol=lf
+*.scss          text eol=lf
+*.sass          text eol=lf
+*.less          text eol=lf
+
+# Dockerfile y similares
+Dockerfile      text eol=lf
+Dockerfile.*    text eol=lf
+*.dockerfile    text eol=lf
+docker-compose.yml text eol=lf
+
+# -----------------------------------------------------------------------------
+# Windows-only scripts — CRLF obligatorio
+# -----------------------------------------------------------------------------
+*.bat           text eol=crlf
+*.cmd           text eol=crlf
+*.ps1           text eol=crlf
+*.psd1          text eol=crlf
+*.psm1          text eol=crlf
+
+# -----------------------------------------------------------------------------
+# Binarios — Git NO debe intentar diff/merge
+# -----------------------------------------------------------------------------
+# Imagenes
+*.png           binary
+*.jpg           binary
+*.jpeg          binary
+*.gif           binary
+*.bmp           binary
+*.ico           binary
+*.tif           binary
+*.tiff          binary
+*.webp          binary
+*.avif          binary
+
+# Fuentes
+*.woff          binary
+*.woff2         binary
+*.ttf           binary
+*.otf           binary
+*.eot           binary
+
+# Audio / video
+*.mp3           binary
+*.mp4           binary
+*.wav           binary
+*.webm          binary
+*.mov           binary
+
+# Documentos
+*.pdf           binary
+*.docx          binary
+*.xlsx          binary
+*.pptx          binary
+*.odt           binary
+
+# Archivos comprimidos
+*.zip           binary
+*.tar           binary
+*.gz            binary
+*.tgz           binary
+*.7z            binary
+*.rar           binary
+
+# Ejecutables / libs
+*.exe           binary
+*.dll           binary
+*.so            binary
+*.dylib         binary
+*.a             binary
+*.lib           binary
+*.jar           binary
+*.war           binary
+*.class         binary
+
+# Certificados / keys (NO deberian estar en git, pero por si acaso: binary)
+*.pfx           binary
+*.p12           binary
+*.cer           binary
+*.crt           binary
+*.key           binary
+*.pem           binary
+
+# -----------------------------------------------------------------------------
+# Linguist hints (mejora deteccion de lenguaje en GitHub Stats)
+# -----------------------------------------------------------------------------
+*.md            linguist-detectable=true
+*.lock          linguist-generated=true
+package-lock.json    linguist-generated=true
+yarn.lock            linguist-generated=true
+pnpm-lock.yaml       linguist-generated=true
+poetry.lock          linguist-generated=true
+Pipfile.lock         linguist-generated=true
+Cargo.lock           linguist-generated=true
+go.sum               linguist-generated=true
+composer.lock        linguist-generated=true
+Gemfile.lock         linguist-generated=true
+*.min.js             linguist-generated=true
+*.min.css            linguist-generated=true
+
+# Archivos vendor — no contar en stats
+vendor/**            linguist-vendored=true
+third_party/**       linguist-vendored=true
+node_modules/**      linguist-vendored=true
+
+# Docs — no contar como codigo
+docs/**              linguist-documentation=true
+*.md                 linguist-documentation=true

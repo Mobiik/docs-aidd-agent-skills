@@ -1,0 +1,49 @@
+# CODEOWNERS — plantilla canónica Mobiik
+#
+# Este archivo es la PLANTILLA inyectada como CODEOWNERS canónico a cada repo
+# de la org via:
+#   - scripts/bootstrap-org.sh (repos existentes)
+#   - .github/workflows/self-heal.yml (drift fix semanal)
+#   - .github/workflows/new-repo-init.yml (repos nuevos)
+#
+# El archivo destino en cada repo es: .github/CODEOWNERS
+#
+# Cada repo PUEDE personalizarlo: el de cada repo prevalece sobre el fallback de Mobiik/.github.
+# Este template establece el baseline y se reaplica si el repo nunca tuvo CODEOWNERS.
+#
+# Política Mobiik: solo se referencian teams (`@Mobiik/...`), nunca personas individuales.
+#
+# Docs: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Fallback global: cualquier path no listado queda bajo platform-engineering.
+*                       @Mobiik/platform-engineering
+
+# Workflows y configuración CI/CD (sensitive)
+/.github/workflows/     @Mobiik/platform-engineering
+/.github/actions/       @Mobiik/platform-engineering
+/.github/dependabot.yml @Mobiik/platform-engineering
+/.github/CODEOWNERS     @Mobiik/platform-engineering
+
+# Configuración de seguridad
+/SECURITY.md            @Mobiik/platform-engineering
+/.gitleaks.toml         @Mobiik/platform-engineering
+
+# Infraestructura como código
+/infra/                 @Mobiik/platform-engineering
+/terraform/             @Mobiik/platform-engineering
+/k8s/                   @Mobiik/platform-engineering
+/Dockerfile             @Mobiik/platform-engineering
+/docker-compose*.yml    @Mobiik/platform-engineering
+
+# Migraciones de DB (review extra-cuidadoso)
+/migrations/            @Mobiik/platform-engineering
+/db/migrations/         @Mobiik/platform-engineering
+
+# Documentación
+/docs/                  @Mobiik/platform-engineering
+/README.md              @Mobiik/platform-engineering
+
+# Licencia y legal
+/LICENSE                @Mobiik/platform-engineering
+/CONTRIBUTING.md        @Mobiik/platform-engineering
+/CODE_OF_CONDUCT.md     @Mobiik/platform-engineering
