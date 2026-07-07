@@ -1,0 +1,18 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 🔒 Reportar vulnerabilidad de seguridad (PRIVADO)
+    url: https://github.com/Mobiik/.github/blob/main/SECURITY.md
+    about: |
+      NO abras un issue público para vulnerabilidades de seguridad. Sigue la política de SECURITY.md (preferentemente vía Private Vulnerability Reporting o email a security@mobiik.com).
+
+  - name: ❓ Pregunta general
+    url: https://mobiik.slack.com/channels/platform-support
+    about: Para preguntas generales, usa Slack #platform-support (más rápido que un issue).
+
+  - name: 📚 Documentación / Manual operativo
+    url: https://github.com/Mobiik/.github-private/blob/main/docs/standards/README.md
+    about: Antes de abrir un issue, revisa si la respuesta está en el manual operativo (gobernanza, branch protection, conventional commits).
+
+  - name: 🐛 Bug en otro repo de Mobiik
+    url: https://github.com/orgs/Mobiik/repositories
+    about: Para reportar un bug en un repo específico, abre el issue en ESE repo, no aquí.

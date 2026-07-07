@@ -1,0 +1,73 @@
+# =============================================================================
+# .editorconfig — Mobiik canonical (drift-managed por reconcile.sh)
+# =============================================================================
+# Editor settings consistentes entre VSCode, IntelliJ, Sublime, Vim, etc.
+# Reduce diffs ruidosos por estilo (tabs vs spaces, line endings, trailing
+# whitespace) en equipos mixtos.
+#
+# Owners: NO modificar — drift-managed. Para cambios, abrir PR a
+# Mobiik/.github/configs/editorconfig.template y el self-heal del lunes
+# lo propagara a todos los repos.
+# =============================================================================
+
+root = true
+
+# Defaults aplicables a TODOS los archivos
+[*]
+charset = utf-8
+end_of_line = lf
+indent_style = space
+indent_size = 2
+insert_final_newline = true
+trim_trailing_whitespace = true
+max_line_length = 100
+
+# Markdown — preservar trailing whitespace (es sintaxis: 2 espacios = line break)
+[*.md]
+trim_trailing_whitespace = false
+max_line_length = off
+
+# Makefiles — REQUIEREN tabs reales
+[{Makefile,makefile,*.mk,*.mak}]
+indent_style = tab
+
+# Go — convencion de la comunidad
+[*.go]
+indent_style = tab
+indent_size = 4
+
+# Python — PEP 8 (4 spaces)
+[*.py]
+indent_size = 4
+
+# Java / Kotlin / Scala — 4 spaces convencional
+[*.{java,kt,kts,scala}]
+indent_size = 4
+
+# C# / .NET — 4 spaces
+[*.{cs,csproj,vbproj,fsproj,sln}]
+indent_size = 4
+
+# Rust — 4 spaces (rustfmt default)
+[*.rs]
+indent_size = 4
+
+# Shell scripts — 2 spaces (Mobiik convention)
+[*.{sh,bash,zsh}]
+indent_size = 2
+
+# YAML — 2 spaces (estandar industria)
+[*.{yml,yaml}]
+indent_size = 2
+
+# JSON — 2 spaces
+[*.{json,jsonc}]
+indent_size = 2
+
+# package.json — 2 spaces (npm convention)
+[package.json]
+indent_size = 2
+
+# Batch files Windows — preservar CRLF
+[*.{bat,cmd,ps1}]
+end_of_line = crlf
