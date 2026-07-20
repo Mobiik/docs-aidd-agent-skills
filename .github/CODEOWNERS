@@ -28,6 +28,15 @@
 /SECURITY.md            @Mobiik/platform-engineering
 /.gitleaks.toml         @Mobiik/platform-engineering
 
+# Gobierno de agentes (ADR-004 §2): los paths que le dan PODER a un agente
+# —su definición, sus hooks y su manifiesto de plugin— requieren revisión de
+# seguridad. Un agente es código que corre con tools; darle tools/hooks nuevos
+# sin ojo de seguridad NO es burocracia, es el gate. Inocuo donde no aplica:
+# los repos que no tengan estos paths simplemente no matchean.
+/agents/                @Mobiik/mobiik-security
+/hooks/                 @Mobiik/mobiik-security
+/.claude-plugin/        @Mobiik/mobiik-security
+
 # Infraestructura como código
 /infra/                 @Mobiik/platform-engineering
 /terraform/             @Mobiik/platform-engineering
